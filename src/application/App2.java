@@ -9,9 +9,10 @@ import model.entities.Department;
 public class App2 {
     public static void main (String[] args){
 
-        System.out.println("\n---- TEST 1: department insert");
-        Department dep = new Department(0,"Kitchen");
         DepartmentDao departmentDao = DaoFactory.createDepartmentDao();
+
+        System.out.println("\n---- TEST 1: department insert");
+        Department dep = new Department(null,"Kitchen");
         departmentDao.insert(dep);
         System.out.println("Insert complete! Key: " + dep.getId());
 
@@ -25,21 +26,16 @@ public class App2 {
         System.out.println("Deletion complete!");
 
         System.out.println("\n---- TEST 4: department findById");
-        Department depTest4 = departmentDao.findById(3);
-        if(depTest4 != null)
-            System.out.println(depTest4.toString());
-        else
-            System.out.println("Department not found!");
-
+        Department depTest4 = departmentDao.findById(78);
+        String result  = depTest4 != null ? depTest4.toString() : "Department not found!";
+        System.out.println(result);
+     
         System.out.println("\n---- TEST 5: department findAll");
         List <Department> list = departmentDao.findAll();
-        if(list != null){
-            for (Department x : list){
-                System.out.println(x.toString());
-            }
+        for (Department x : list){
+            System.out.println( list != null ? x.toString() : "No departments found!");
         }
-        else
-            System.out.println("No departments found!");
+       
     }
     
 }
