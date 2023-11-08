@@ -97,7 +97,6 @@ public class DepartmentDaoJDBC implements DepartmentDao {
             ps.setInt(1, id);
             rs = ps.executeQuery();
             
-
             if(rs.next()){
                 Department dep = instantiateDepartment(rs);
                 return dep;
@@ -144,5 +143,4 @@ public class DepartmentDaoJDBC implements DepartmentDao {
         dep.setName(rs.getString("Name"));
         return dep;
     }
-    
 }

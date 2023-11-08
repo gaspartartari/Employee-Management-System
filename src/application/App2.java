@@ -34,8 +34,6 @@ public class App2 {
         List <Department> list = departmentDao.findAll();
         for (Department x : list){
             System.out.println( list != null ? x.toString() : "No departments found!");
-        }
-       
-    }
-    
+        }  
+    } 
 }
