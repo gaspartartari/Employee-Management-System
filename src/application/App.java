@@ -44,7 +44,7 @@ public class App {
         System.out.println("Update successful!");
 
         System.out.println("\n---- TEST 6: seller delete ----");
-        sellerDao.deleteById(80);
+        sellerDao.deleteById(8);
         System.out.println("Deletion complete!");
     }
 }
