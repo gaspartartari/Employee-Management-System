@@ -18,6 +18,10 @@ public class App2 {
         Department newDep = new Department(6, "Shoes");
         departmentDao.update(newDep);
         System.out.println("Update complete!");
+
+        System.out.println("\n---- TEST 2: department delete");
+        departmentDao.deleteById(5);
+        System.out.println("Deletion complete!");
     }
     
 }
