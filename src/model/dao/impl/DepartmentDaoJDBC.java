@@ -5,7 +5,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import com.mysql.cj.x.protobuf.MysqlxPrepare.Prepare;
 
 import db.DB;
 import db.DbException;
@@ -87,14 +91,41 @@ public class DepartmentDaoJDBC implements DepartmentDao {
 
     @Override
     public Department findById(Integer id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findById'");
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        try{
+            ps = conn.prepareStatement("SELECT * FROM department WHERE Id = ?");
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+            
+
+            if(rs.next()){
+                Department dep = instantiateDepartment(rs);
+                return dep;
+                }
+            return null;
+        }
+        catch (SQLException e){
+            throw new DbException(e.getMessage());
+        }
+        finally{
+            DB.closeStatement(ps);
+            DB.closeResultSet(rs);
+        }
     }
 
     @Override
     public List<Department> findAll() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'findAll'");
+    }
+
+    private Department instantiateDepartment(ResultSet rs) throws SQLException {
+        Department dep = new Department();
+        dep.setId(rs.getInt("Id"));
+        dep.setName(rs.getString("Name"));
+        return dep;
     }
     
 }
