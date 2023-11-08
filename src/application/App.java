@@ -24,5 +24,11 @@ public class App {
         for (Seller x : list){
             System.out.println(x.toString());
         }
+
+        System.out.println("\n---- TEST 3: seller findAll ----");
+        list = sellerDao.findAll();
+        for (Seller x : list){
+            System.out.println(x.toString());
+        }
     }
 }
