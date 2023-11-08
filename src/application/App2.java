@@ -1,5 +1,7 @@
 package application;
 
+import java.util.List;
+
 import model.dao.DaoFactory;
 import model.dao.DepartmentDao;
 import model.entities.Department;
@@ -23,11 +25,21 @@ public class App2 {
         System.out.println("Deletion complete!");
 
         System.out.println("\n---- TEST 4: department findById");
-        Department depTest4 = departmentDao.findById(20);
+        Department depTest4 = departmentDao.findById(3);
         if(depTest4 != null)
             System.out.println(depTest4.toString());
         else
-            System.out.println("Departamento não encontrado!");
+            System.out.println("Department not found!");
+
+        System.out.println("\n---- TEST 5: department findAll");
+        List <Department> list = departmentDao.findAll();
+        if(list != null){
+            for (Department x : list){
+                System.out.println(x.toString());
+            }
+        }
+        else
+            System.out.println("No departments found!");
     }
     
 }
