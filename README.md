@@ -1,18 +1,69 @@
+# Employee Management System
+
+This Java application serves as a simple Employee Management System, showcasing basic CRUD operations (Create, Read, Update, Delete) for both departments and employees. As a student eager to demonstrate programming skills and attract potential recruiters, this project offers a practical example of Java development.
+
+## Overview
+
+The repository contains two main classes: `App` and `App2`. The `App` class illustrates employee-related operations (sellers), while the `App2` class focuses on department-related operations. The structure includes DAO (Data Access Object) classes for sellers and departments, complemented by JDBC implementations for efficient database interactions.
+
 ## Getting Started
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Follow these steps to run the application:
 
-## Folder Structure
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   ```
 
-The workspace contains two folders by default, where:
+2. Compile the Java files:
+   ```bash
+   javac -cp .:<path-to-jdbc-driver-jar> application/*.java db/*.java model/dao/*.java model/dao/impl/*.java model/entities/*.java
+   ```
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+3. Run the `App` class:
+   ```bash
+   java -cp .:<path-to-jdbc-driver-jar> application.App
+   ```
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+4. Run the `App2` class:
+   ```bash
+   java -cp .:<path-to-jdbc-driver-jar> application.App2
+   ```
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+## Tests
 
-## Dependency Management
+The application includes various tests demonstrating different functionalities:
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+- Test 1: Find a seller by ID
+- Test 2: Find sellers by department
+- Test 3: Find all sellers
+- Test 4: Insert a new seller
+- Test 5: Update seller information
+- Test 6: Delete a seller
+
+For departments:
+
+- Test 1: Insert a new department
+- Test 2: Update department information
+- Test 3: Delete a department
+- Test 4: Find a department by ID
+- Test 5: Find all departments
+
+## Database Configuration
+
+Configure the database connection in the `db.properties` file. Update it with your database details:
+
+```properties
+dburl=jdbc:mysql://localhost:3306/your_database_name
+user=your_username
+password=your_password
+```
+
+## Feedback
+
+For any inquiries or feedback, feel free to contact me:
+
+- Email: gaspartartari@gmail.com
+
+
+Explore and use this application as a testament to your programming skills. Thank you for checking out my project!
